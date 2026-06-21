@@ -7,22 +7,19 @@ public class Museum {
     private int museumId;
     private String name;
     private String description;
-    private City city;                 // Composition with City object
+    private City city;
     private Time openingTime;
     private Time closingTime;
     private BigDecimal localPrice;
     private BigDecimal foreignPrice;
-    private BigDecimal studentPrice;
     private String culturalInfo;
     private String imagePath;
 
-    // Constructors
     public Museum() {}
 
-    public Museum(int museumId, String name, String description, City city, 
-                  Time openingTime, Time closingTime, BigDecimal localPrice, 
-                  BigDecimal foreignPrice, BigDecimal studentPrice, 
-                  String culturalInfo, String imagePath) {
+    public Museum(int museumId, String name, String description, City city,
+                  Time openingTime, Time closingTime, BigDecimal localPrice,
+                  BigDecimal foreignPrice, String culturalInfo, String imagePath) {
         this.museumId = museumId;
         this.name = name;
         this.description = description;
@@ -31,7 +28,6 @@ public class Museum {
         this.closingTime = closingTime;
         this.localPrice = localPrice;
         this.foreignPrice = foreignPrice;
-        this.studentPrice = studentPrice;
         this.culturalInfo = culturalInfo;
         this.imagePath = imagePath;
     }
@@ -53,10 +49,13 @@ public class Museum {
     public void setLocalPrice(BigDecimal localPrice) { this.localPrice = localPrice; }
     public BigDecimal getForeignPrice() { return foreignPrice; }
     public void setForeignPrice(BigDecimal foreignPrice) { this.foreignPrice = foreignPrice; }
-    public BigDecimal getStudentPrice() { return studentPrice; }
-    public void setStudentPrice(BigDecimal studentPrice) { this.studentPrice = studentPrice; }
     public String getCulturalInfo() { return culturalInfo; }
     public void setCulturalInfo(String culturalInfo) { this.culturalInfo = culturalInfo; }
     public String getImagePath() { return imagePath; }
     public void setImagePath(String imagePath) { this.imagePath = imagePath; }
+
+    @Override
+    public String toString() {
+        return name;  // for JList display
+    }
 }

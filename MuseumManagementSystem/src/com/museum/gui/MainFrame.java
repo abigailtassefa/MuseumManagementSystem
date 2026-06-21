@@ -244,36 +244,35 @@ public class MainFrame extends JFrame {
 
     // ---------- Display Detail ----------
     private void showMuseumDetail(Museum m) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Name: ").append(m.getName()).append("\n");
-        sb.append("City: ").append(m.getCity().getCityName()).append("\n");
-        sb.append("Description: ").append(m.getDescription()).append("\n");
-        sb.append("Opening: ").append(m.getOpeningTime()).append("\n");
-        sb.append("Closing: ").append(m.getClosingTime()).append("\n");
-        sb.append("Ticket Prices:\n");
-        sb.append("  Local: ").append(m.getLocalPrice()).append(" ETB\n");
-        sb.append("  Foreign: ").append(m.getForeignPrice()).append(" ETB\n");
-        sb.append("  Student: ").append(m.getStudentPrice()).append(" ETB\n");
-        sb.append("Cultural Info:\n").append(m.getCulturalInfo());
-        detailArea.setText(sb.toString());
+    StringBuilder sb = new StringBuilder();
+    sb.append("Name: ").append(m.getName()).append("\n");
+    sb.append("City: ").append(m.getCity().getCityName()).append("\n");
+    sb.append("Description: ").append(m.getDescription()).append("\n");
+    sb.append("Opening: ").append(m.getOpeningTime()).append("\n");
+    sb.append("Closing: ").append(m.getClosingTime()).append("\n");
+    sb.append("Ticket Prices:\n");
+    sb.append("  Local: ").append(m.getLocalPrice()).append(" ETB\n");
+    sb.append("  Foreign: ").append(m.getForeignPrice()).append(" ETB\n");
+    // Student price line is removed
+    sb.append("Cultural Info:\n").append(m.getCulturalInfo());
+    detailArea.setText(sb.toString());
 
-        // Load image if exists
-        String path = m.getImagePath();
-        if (path != null && !path.isEmpty()) {
-            ImageIcon icon = new ImageIcon(path);
-            if (icon.getIconWidth() > 0) {
-                // Scale if too large
-                Image img = icon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
-                imageLabel.setIcon(new ImageIcon(img));
-                imageLabel.setText("");
-            } else {
-                imageLabel.setIcon(null);
-                imageLabel.setText("Image not found");
-            }
+    // Image handling (unchanged)
+    String path = m.getImagePath();
+    if (path != null && !path.isEmpty()) {
+        ImageIcon icon = new ImageIcon(path);
+        if (icon.getIconWidth() > 0) {
+            Image img = icon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+            imageLabel.setIcon(new ImageIcon(img));
+            imageLabel.setText("");
         } else {
             imageLabel.setIcon(null);
-            imageLabel.setText("No image");
+            imageLabel.setText("Image not found");
         }
+    } else {
+        imageLabel.setIcon(null);
+        imageLabel.setText("No image");
+    }
     }
 
     private void clearDetail() {
