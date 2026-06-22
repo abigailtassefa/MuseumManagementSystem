@@ -104,7 +104,8 @@ public class AdminLoginDialog extends JDialog {
                     "❌ Invalid username or password. Please try again.", 
                     "Login Failed", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, 
                 "Database error: " + ex.getMessage(), 
                 "Database Error", JOptionPane.ERROR_MESSAGE);
@@ -117,4 +118,8 @@ public class AdminLoginDialog extends JDialog {
 
     public boolean isAuthenticated() { return authenticated; }
     public User getUser() { return user; }
+
+    public AuthenticationService getAuthService() {
+        return authService;
+    }
 } 

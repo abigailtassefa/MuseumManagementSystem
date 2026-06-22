@@ -99,7 +99,7 @@ public class MuseumDetailFrame extends JFrame {
 
         contentPanel.add(Box.createRigidArea(new Dimension(0, 10)));
 
-        // Ticket Prices
+        // Ticket Prices (NO BUY BUTTONS - just display prices)
         JPanel pricePanel = new JPanel(new GridLayout(1, 2, 10, 10));
         pricePanel.setBorder(BorderFactory.createTitledBorder("💰 Ticket Prices"));
 
@@ -107,24 +107,18 @@ public class MuseumDetailFrame extends JFrame {
         localPanel.setBorder(BorderFactory.createLineBorder(new Color(0x0A7E8C), 2));
         localPanel.add(new JLabel("👤 Local Visitors", SwingConstants.CENTER), BorderLayout.NORTH);
         JLabel localPriceLabel = new JLabel(museum.getLocalPrice() + " ETB", SwingConstants.CENTER);
-        localPriceLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
+        localPriceLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
         localPriceLabel.setForeground(new Color(0x0A7E8C));
         localPanel.add(localPriceLabel, BorderLayout.CENTER);
-        JButton buyLocalButton = new JButton("🎫 Buy Ticket");
-        buyLocalButton.addActionListener(e -> openPaymentDialog("Local"));
-        localPanel.add(buyLocalButton, BorderLayout.SOUTH);
         pricePanel.add(localPanel);
 
         JPanel foreignPanel = new JPanel(new BorderLayout());
         foreignPanel.setBorder(BorderFactory.createLineBorder(new Color(0xD62828), 2));
         foreignPanel.add(new JLabel("🌍 Foreign Visitors", SwingConstants.CENTER), BorderLayout.NORTH);
         JLabel foreignPriceLabel = new JLabel(museum.getForeignPrice() + " ETB", SwingConstants.CENTER);
-        foreignPriceLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
+        foreignPriceLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
         foreignPriceLabel.setForeground(new Color(0xD62828));
         foreignPanel.add(foreignPriceLabel, BorderLayout.CENTER);
-        JButton buyForeignButton = new JButton("🎫 Buy Ticket");
-        buyForeignButton.addActionListener(e -> openPaymentDialog("Foreign"));
-        foreignPanel.add(buyForeignButton, BorderLayout.SOUTH);
         pricePanel.add(foreignPanel);
 
         contentPanel.add(pricePanel);
@@ -150,10 +144,4 @@ public class MuseumDetailFrame extends JFrame {
 
         add(mainPanel);
     }
-/* 
-    private void openPaymentDialog(String visitorType) {
-        PaymentDialog dialog = new PaymentDialog(this, museum, visitorType, currentUser);
-        dialog.setVisible(true);
-    }
-} */
 }

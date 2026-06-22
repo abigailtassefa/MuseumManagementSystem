@@ -10,4 +10,4 @@ public class AuthenticationService {
     public User login(String username, String password) throws SQLException {
         return userDAO.authenticate(username, password);
     }
-} 
+}
