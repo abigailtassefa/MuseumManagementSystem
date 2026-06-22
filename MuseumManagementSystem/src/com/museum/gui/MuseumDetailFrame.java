@@ -150,9 +150,10 @@ public class MuseumDetailFrame extends JFrame {
 
         add(mainPanel);
     }
-
+/* 
     private void openPaymentDialog(String visitorType) {
         PaymentDialog dialog = new PaymentDialog(this, museum, visitorType, currentUser);
         dialog.setVisible(true);
     }
-} 
+} */
+}
